@@ -1,0 +1,29 @@
+function:
+  control_smart_plug: |
+    info = %{
+      "address" => @plug_address,
+      "port" => 443,
+      "path" => "/smarthome/controlDevice",
+      "method" => "POST",
+      "body" => %{
+        "userid" => @plug_userid,
+        "mac" => @plug_mac,
+        "deviceId" => @plug_id,
+        "password" => @plug_pw,
+        "command" => %{ "type" => $command }
+      }
+    }
+    response = https(info)
+    response["body"]
+    
+property:
+  plug_address: "open.hknetworks.kr"
+  plug_id: "test1"
+  plug_mac: "cc50e34602d2"
+  plug_pw: "abcdef"
+  plug_userid: "test\@test.com"
+  
+  
+# run command
+function "control_smart_plug", command: "turnoff"
+function "control_smart_plug", command: "turnon"
