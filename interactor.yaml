@@ -19,7 +19,7 @@ function:
 property:
   plug_address: "open.hknetworks.kr"
   plug_id: "test1"
-  plug_mac: "cc50e34602d2"
+  plug_mac: "plugmac"
   plug_pw: "abcdef"
   plug_userid: "test\@test.com"
   
